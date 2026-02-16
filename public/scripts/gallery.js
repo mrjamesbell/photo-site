@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 // Initialize navigation links
 function initializeNavigation() {
-    const navLinks = document.querySelectorAll('.nav-link');
+    const navLinks = document.querySelectorAll('.filter-link');
 
     navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
@@ -85,7 +85,7 @@ function loadPhotosFromURL() {
     currentPage = parseInt(params.get('page')) || 1;
 
     // Update active navigation
-    const navLinks = document.querySelectorAll('.nav-link');
+    const navLinks = document.querySelectorAll('.filter-link');
     navLinks.forEach(link => {
         if (link.dataset.category === currentCategory) {
             link.classList.add('active');

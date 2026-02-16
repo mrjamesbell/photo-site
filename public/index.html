@@ -14,22 +14,19 @@
 </head>
 <body>
     <header class="page-header">
-        <nav class="nav">
-            <a href="https://jrbnz.com" class="nav-logo">James Bell</a>
-            <div class="nav-links">
-                <a href="/" class="nav-link active" data-category="all">All Photos</a>
-                <a href="/?category=theatre" class="nav-link" data-category="theatre">Theatre</a>
-                <a href="/?category=travel" class="nav-link" data-category="travel">Travel</a>
-            </div>
-        </nav>
+        <h1>Photos</h1>
     </header>
 
-    <main class="content">
-        <div class="gallery-container">
-            <div id="loading" class="loading">Loading photos...</div>
-            <div id="gallery" class="gallery"></div>
-            <div id="error" class="error" style="display: none;"></div>
-        </div>
+    <nav class="filter-nav">
+        <a href="/" class="filter-link active" data-category="all">All Photos</a>
+        <a href="/?category=theatre" class="filter-link" data-category="theatre">Theatre</a>
+        <a href="/?category=travel" class="filter-link" data-category="travel">Travel</a>
+    </nav>
+
+    <main class="gallery-section">
+        <div id="loading" class="loading">Loading photos...</div>
+        <div id="gallery" class="gallery"></div>
+        <div id="error" class="error" style="display: none;"></div>
 
         <nav class="pagination" id="pagination" style="display: none;">
             <button id="prev-btn" class="pagination-btn" disabled>← Previous</button>
@@ -39,7 +36,7 @@
     </main>
 
     <footer class="page-footer">
-        <p>&copy; 2026 James Bell. All rights reserved.</p>
+        <a href="https://jrbnz.com" class="back-link">← Back to home</a>
     </footer>
 
     <!-- GLightbox -->

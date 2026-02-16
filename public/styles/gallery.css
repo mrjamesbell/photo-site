@@ -1,41 +1,15 @@
 /* Gallery-specific styles - extends main.css from jrbnz.com */
 
-/* Override content section for gallery */
-.content {
+/* Filter Navigation */
+.filter-nav {
     padding: 0 40px 40px;
-    max-width: 1400px;
-    margin: 0 auto;
-}
-
-/* Navigation */
-.nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.nav-logo {
-    font-size: clamp(24px, 3vw, 32px);
-    font-weight: 600;
-    color: var(--text-color);
-    text-decoration: none;
-    border-bottom: 2px solid transparent;
-    transition: border-color 0.2s ease;
-}
-
-.nav-logo:hover {
-    border-bottom-color: var(--hover-color);
-}
-
-.nav-links {
     display: flex;
     gap: 30px;
     flex-wrap: wrap;
+    background: var(--background-color);
 }
 
-.nav-link {
+.filter-link {
     color: var(--link-color);
     text-decoration: none;
     border-bottom: 2px solid transparent;
@@ -43,24 +17,24 @@
     font-size: clamp(18px, 2vw, 24px);
 }
 
-.nav-link:hover {
+.filter-link:hover {
     border-bottom-color: var(--hover-color);
 }
 
-.nav-link.active {
+.filter-link.active {
     color: var(--accent-color);
     border-bottom-color: var(--accent-color);
 }
 
-/* Gallery Grid */
-.gallery-container {
-    margin: 40px 0;
+/* Gallery Section */
+.gallery-section {
+    padding: 40px 40px 100px;
+    background: var(--background-color);
 }
 
 .gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 20px;
+    column-count: 4;
+    column-gap: 20px;
     width: 100%;
 }
 
@@ -71,6 +45,10 @@
     cursor: pointer;
     background-color: rgba(252, 244, 218, 0.05);
     transition: transform 0.2s ease;
+    break-inside: avoid;
+    margin-bottom: 20px;
+    display: inline-block;
+    width: 100%;
 }
 
 .gallery-item:hover {
@@ -81,7 +59,6 @@
     width: 100%;
     height: auto;
     display: block;
-    object-fit: cover;
     opacity: 0;
     transition: opacity 0.3s ease;
 }
@@ -176,30 +153,44 @@
     background-color: var(--hover-color);
 }
 
+/* Fix lightbox image sizing to prevent scrollbars */
+.glightbox-clean .gslide-image img {
+    max-height: 90vh;
+    max-width: 90vw;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+
+.glightbox-clean .gslide-media {
+    max-height: 90vh;
+    max-width: 90vw;
+}
+
 /* Responsive */
 @media (max-width: 1200px) {
     .gallery {
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        column-count: 3;
     }
 }
 
 @media (max-width: 768px) {
-    .content {
+    .filter-nav {
         padding: 0 24px 24px;
-    }
-
-    .nav {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .nav-links {
         gap: 20px;
     }
 
+    .gallery-section {
+        padding: 24px 24px 80px;
+    }
+
     .gallery {
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-        gap: 16px;
+        column-count: 2;
+        column-gap: 16px;
+    }
+
+    .gallery-item {
+        margin-bottom: 16px;
     }
 
     .pagination {
@@ -211,15 +202,10 @@
         width: 100%;
         max-width: 300px;
     }
-
-    .page-footer {
-        padding: 40px 24px;
-    }
 }
 
 @media (max-width: 480px) {
     .gallery {
-        grid-template-columns: 1fr;
-        gap: 16px;
+        column-count: 1;
     }
 }
