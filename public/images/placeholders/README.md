@@ -1,30 +1,34 @@
 # Test Photos for Local Development
 
-Place your test photos in this directory for local testing.
+Place your test photos in category subdirectories for local testing.
 
-## Naming Convention
+## Directory Structure
 
-Name your files like this:
-- `theatre-1.jpg`
-- `theatre-2.jpg`
-- `theatre-3.jpg`
-- `travel-1.jpg`
-- `travel-2.jpg`
-- etc.
+```
+public/images/placeholders/
+├── theatre/
+│   ├── photo1.jpg
+│   ├── photo2.jpg
+│   └── ...
+└── travel/
+    ├── photo1.jpg
+    ├── photo2.jpg
+    └── ...
+```
 
-The mock API expects:
-- **6 theatre photos**: theatre-1.jpg through theatre-6.jpg
-- **6 travel photos**: travel-1.jpg through travel-6.jpg
+## How to Use
+
+1. Drop any JPG images into the `theatre/` or `travel/` subdirectories
+2. The mock API will automatically detect and use all images in each folder
+3. No specific naming required - any `.jpg` files will work
+4. Refresh the browser to see your photos
 
 ## How It Works
 
-When you run the local dev server, the mock API will automatically use these images instead of placeholder images from external services.
-
-## Quick Test
-
-1. Add any JPG images to this directory with the naming pattern above
-2. Refresh the browser at http://localhost:8080
-3. Your test photos will appear in the gallery
+When you run the local dev server, the mock API will:
+- Scan the theatre and travel directories
+- Use all JPG files found in each category
+- Display them in the gallery sorted by popularity (with randomization)
 
 ## For Production
 

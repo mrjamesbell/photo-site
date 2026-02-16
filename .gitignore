@@ -8,3 +8,10 @@ wrangler.toml
 *.log
 .dev.vars
 upload-script/test-images/
+
+# Test photos for local development (ignore all images but keep directories)
+public/images/placeholders/**/*.jpg
+public/images/placeholders/**/*.jpeg
+public/images/placeholders/**/*.png
+public/images/placeholders/**/*.gif
+!public/images/placeholders/**/.gitkeep
