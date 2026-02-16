@@ -1,34 +1,35 @@
 # Test Photos for Local Development
 
-Place your test photos in category subdirectories for local testing.
+Drop your test photos in the category subdirectories for local testing.
 
 ## Directory Structure
 
 ```
 public/images/placeholders/
 ├── theatre/
-│   ├── photo1.jpg
-│   ├── photo2.jpg
-│   └── ...
+│   ├── 1.jpg
+│   ├── 2.jpg
+│   ├── 3.jpg
+│   ├── 4.jpg
+│   ├── 5.jpg
+│   └── 6.jpg
 └── travel/
-    ├── photo1.jpg
-    ├── photo2.jpg
-    └── ...
+    ├── 1.jpg
+    ├── 2.jpg
+    ├── 3.jpg
+    ├── 4.jpg
+    ├── 5.jpg
+    └── 6.jpg
 ```
 
 ## How to Use
 
-1. Drop any JPG images into the `theatre/` or `travel/` subdirectories
-2. The mock API will automatically detect and use all images in each folder
-3. No specific naming required - any `.jpg` files will work
-4. Refresh the browser to see your photos
+1. Copy your photos into `theatre/` or `travel/` folders
+2. Rename them to: `1.jpg`, `2.jpg`, `3.jpg`, `4.jpg`, `5.jpg`, `6.jpg`
+3. Refresh the browser at http://localhost:8080
+4. Your test photos will appear in the gallery
 
-## How It Works
-
-When you run the local dev server, the mock API will:
-- Scan the theatre and travel directories
-- Use all JPG files found in each category
-- Display them in the gallery sorted by popularity (with randomization)
+Simple! Just rename your files to match the numbers.
 
 ## For Production
 
@@ -37,4 +38,4 @@ These test images are NOT used in production. The production site uses:
 - The upload script to process and upload photos
 - Real metadata from Workers KV
 
-This directory is only for local development and testing the gallery layout/functionality.
+This directory is only for local development and testing.

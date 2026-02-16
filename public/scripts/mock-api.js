@@ -3,63 +3,44 @@
  *
  * To use your own test photos:
  * 1. Place images in public/images/placeholders/theatre/ or /travel/
- * 2. Any .jpg filename works - no specific naming required
- * 3. Update the PHOTO_FILES arrays below with your filenames
+ * 2. Name them: 1.jpg, 2.jpg, 3.jpg, etc.
+ * 3. The mock API will automatically use them
  */
 
-// List your test photo filenames here
-const THEATRE_PHOTOS = [
-    '1.jpg',
-    '2.jpg',
-    '3.jpg',
-    '4.jpg',
-    '5.jpg',
-    '6.jpg'
-];
-
-const TRAVEL_PHOTOS = [
-    '1.jpg',
-    '2.jpg',
-    '3.jpg',
-    '4.jpg',
-    '5.jpg',
-    '6.jpg'
-];
-
-// Generate mock photos from the file lists
+// Generate mock photos - expects numbered files in category folders
 function generateMockPhotos() {
     const photos = [];
     let id = 1;
 
-    // Generate theatre photos
-    THEATRE_PHOTOS.forEach((filename, index) => {
+    // Theatre photos (6 photos expected: 1.jpg through 6.jpg)
+    for (let i = 1; i <= 6; i++) {
         photos.push({
             id: String(id++),
-            filename: filename,
+            filename: `${i}.jpg`,
             category: 'theatre',
-            uploadDate: new Date(2026, 1, index + 1).toISOString(),
+            uploadDate: new Date(2026, 1, i).toISOString(),
             width: 1920,
             height: 1280,
             clicks: Math.floor(Math.random() * 50) + 10,
-            thumbnailUrl: `/images/placeholders/theatre/${filename}`,
-            fullUrl: `/images/placeholders/theatre/${filename}`
+            thumbnailUrl: `/images/placeholders/theatre/${i}.jpg`,
+            fullUrl: `/images/placeholders/theatre/${i}.jpg`
         });
-    });
+    }
 
-    // Generate travel photos
-    TRAVEL_PHOTOS.forEach((filename, index) => {
+    // Travel photos (6 photos expected: 1.jpg through 6.jpg)
+    for (let i = 1; i <= 6; i++) {
         photos.push({
             id: String(id++),
-            filename: filename,
+            filename: `${i}.jpg`,
             category: 'travel',
-            uploadDate: new Date(2026, 1, index + 7).toISOString(),
+            uploadDate: new Date(2026, 1, i + 6).toISOString(),
             width: 1920,
             height: 1280,
             clicks: Math.floor(Math.random() * 50) + 10,
-            thumbnailUrl: `/images/placeholders/travel/${filename}`,
-            fullUrl: `/images/placeholders/travel/${filename}`
+            thumbnailUrl: `/images/placeholders/travel/${i}.jpg`,
+            fullUrl: `/images/placeholders/travel/${i}.jpg`
         });
-    });
+    }
 
     return photos;
 }
