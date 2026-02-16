@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Gallery - Local Development</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        h1 { color: #003a53; }
+        .info-box {
+            background: #f0f8ff;
+            border-left: 4px solid #003a53;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .button {
+            display: inline-block;
+            background: #003a53;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-right: 10px;
+            margin-top: 10px;
+        }
+        .button:hover {
+            background: #2790af;
+        }
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+        pre {
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>🖼️ Photo Gallery - Local Development</h1>
+
+    <div class="info-box">
+        <h2>Quick Start</h2>
+        <p>To view the gallery with placeholder images:</p>
+        <ol>
+            <li>Open <code>public/index.html</code> directly in your browser, or</li>
+            <li>Use a local server (recommended for module imports to work correctly)</li>
+        </ol>
+    </div>
+
+    <h2>Option 1: Simple File Access</h2>
+    <p>Click the button below to open the gallery:</p>
+    <a href="public/index.html" class="button">Open Gallery (File)</a>
+
+    <h2>Option 2: Local Server (Recommended)</h2>
+    <p>For the best development experience, use a local server:</p>
+
+    <h3>Using Python:</h3>
+    <pre>cd public
+python3 -m http.server 8000</pre>
+    <p>Then visit: <a href="http://localhost:8000">http://localhost:8000</a></p>
+
+    <h3>Using Node.js (http-server):</h3>
+    <pre>npx http-server public -p 8000</pre>
+    <p>Then visit: <a href="http://localhost:8000">http://localhost:8000</a></p>
+
+    <h3>Using PHP:</h3>
+    <pre>cd public
+php -S localhost:8000</pre>
+    <p>Then visit: <a href="http://localhost:8000">http://localhost:8000</a></p>
+
+    <div class="info-box">
+        <h2>📝 Note</h2>
+        <p>The gallery will automatically use <strong>mock data</strong> with placeholder images when running locally. This allows you to see the design and functionality without needing to set up Cloudflare infrastructure.</p>
+        <p>When deployed to Cloudflare Pages, it will automatically use the real API endpoints.</p>
+    </div>
+
+    <h2>Next Steps</h2>
+    <ol>
+        <li>Review <code>SETUP.md</code> for Cloudflare setup instructions</li>
+        <li>Customize colors in <code>public/styles/main.css</code></li>
+        <li>Deploy to Cloudflare when ready</li>
+    </ol>
+
+    <h2>Project Files</h2>
+    <ul>
+        <li><code>README.md</code> - Full documentation</li>
+        <li><code>SETUP.md</code> - Quick setup guide</li>
+        <li><code>public/</code> - Frontend files</li>
+        <li><code>worker/</code> - Cloudflare Worker (API)</li>
+        <li><code>upload-script/</code> - Photo upload tool</li>
+    </ul>
+</body>
+</html>
