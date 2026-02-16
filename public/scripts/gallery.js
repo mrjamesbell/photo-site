@@ -5,24 +5,23 @@ const USE_MOCK_API = window.location.hostname === 'localhost' || window.location
 const API_ENDPOINT = '/api';
 const PHOTOS_PER_PAGE = 30;
 
-// Import mock API if needed
-let mockGetPhotos, mockTrackClick;
-if (USE_MOCK_API) {
-    import('./mock-api.js').then(module => {
-        mockGetPhotos = module.mockGetPhotos;
-        mockTrackClick = module.mockTrackClick;
-        console.log('🔧 Using mock API for local development');
-    });
-}
-
 // State
 let currentPage = 1;
 let currentCategory = 'all';
 let totalPages = 1;
 let lightbox = null;
+let mockGetPhotos, mockTrackClick;
 
 // Initialize gallery on page load
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
+    // Load mock API if in local dev mode
+    if (USE_MOCK_API) {
+        const module = await import('./mock-api.js');
+        mockGetPhotos = module.mockGetPhotos;
+        mockTrackClick = module.mockTrackClick;
+        console.log('🔧 Using mock API for local development');
+    }
+
     initializeNavigation();
     initializePagination();
     loadPhotosFromURL();
