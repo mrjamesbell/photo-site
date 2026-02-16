@@ -3,42 +3,42 @@
  *
  * To use your own test photos:
  * 1. Place images in public/images/placeholders/theatre/ or /travel/
- * 2. Name them: 1.jpg, 2.jpg, 3.jpg, etc.
+ * 2. Name them: theatre1.jpg, theatre2.jpg, travel1.jpg, travel2.jpg, etc.
  * 3. The mock API will automatically use them
  */
 
-// Generate mock photos - expects numbered files in category folders
+// Generate mock photos - expects theatre1.jpg, theatre2.jpg, etc.
 function generateMockPhotos() {
     const photos = [];
     let id = 1;
 
-    // Theatre photos (6 photos expected: 1.jpg through 6.jpg)
+    // Theatre photos (6 photos expected: theatre1.jpg through theatre6.jpg)
     for (let i = 1; i <= 6; i++) {
         photos.push({
             id: String(id++),
-            filename: `${i}.jpg`,
+            filename: `theatre${i}.jpg`,
             category: 'theatre',
             uploadDate: new Date(2026, 1, i).toISOString(),
             width: 1920,
             height: 1280,
             clicks: Math.floor(Math.random() * 50) + 10,
-            thumbnailUrl: `/images/placeholders/theatre/${i}.jpg`,
-            fullUrl: `/images/placeholders/theatre/${i}.jpg`
+            thumbnailUrl: `/images/placeholders/theatre/theatre${i}.jpg`,
+            fullUrl: `/images/placeholders/theatre/theatre${i}.jpg`
         });
     }
 
-    // Travel photos (6 photos expected: 1.jpg through 6.jpg)
+    // Travel photos (6 photos expected: travel1.jpg through travel6.jpg)
     for (let i = 1; i <= 6; i++) {
         photos.push({
             id: String(id++),
-            filename: `${i}.jpg`,
+            filename: `travel${i}.jpg`,
             category: 'travel',
             uploadDate: new Date(2026, 1, i + 6).toISOString(),
             width: 1920,
             height: 1280,
             clicks: Math.floor(Math.random() * 50) + 10,
-            thumbnailUrl: `/images/placeholders/travel/${i}.jpg`,
-            fullUrl: `/images/placeholders/travel/${i}.jpg`
+            thumbnailUrl: `/images/placeholders/travel/travel${i}.jpg`,
+            fullUrl: `/images/placeholders/travel/travel${i}.jpg`
         });
     }
 

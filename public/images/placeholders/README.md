@@ -7,29 +7,27 @@ Drop your test photos in the category subdirectories for local testing.
 ```
 public/images/placeholders/
 ├── theatre/
-│   ├── 1.jpg
-│   ├── 2.jpg
-│   ├── 3.jpg
-│   ├── 4.jpg
-│   ├── 5.jpg
-│   └── 6.jpg
+│   ├── theatre1.jpg
+│   ├── theatre2.jpg
+│   ├── theatre3.jpg
+│   ├── theatre4.jpg
+│   ├── theatre5.jpg
+│   └── theatre6.jpg
 └── travel/
-    ├── 1.jpg
-    ├── 2.jpg
-    ├── 3.jpg
-    ├── 4.jpg
-    ├── 5.jpg
-    └── 6.jpg
+    ├── travel1.jpg
+    ├── travel2.jpg
+    ├── travel3.jpg
+    ├── travel4.jpg
+    ├── travel5.jpg
+    └── travel6.jpg
 ```
 
 ## How to Use
 
 1. Copy your photos into `theatre/` or `travel/` folders
-2. Rename them to: `1.jpg`, `2.jpg`, `3.jpg`, `4.jpg`, `5.jpg`, `6.jpg`
+2. Name them: `theatre1.jpg`, `theatre2.jpg`, etc. or `travel1.jpg`, `travel2.jpg`, etc.
 3. Refresh the browser at http://localhost:8080
 4. Your test photos will appear in the gallery
-
-Simple! Just rename your files to match the numbers.
 
 ## For Production
 
