@@ -13,17 +13,19 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox@3.2.0/dist/css/glightbox.min.css">
 </head>
 <body>
+    <!-- Blue header section with title -->
     <header class="page-header">
         <h1>Photos</h1>
     </header>
 
-    <nav class="filter-nav">
-        <a href="/" class="filter-link active" data-category="all">All Photos</a>
-        <a href="/?category=theatre" class="filter-link" data-category="theatre">Theatre</a>
-        <a href="/?category=travel" class="filter-link" data-category="travel">Travel</a>
-    </nav>
+    <!-- Cream content section with navigation and gallery -->
+    <section class="content-section">
+        <nav class="filter-nav">
+            <a href="/" class="filter-link active" data-category="all">All Photos</a>
+            <a href="/?category=theatre" class="filter-link" data-category="theatre">Theatre</a>
+            <a href="/?category=travel" class="filter-link" data-category="travel">Travel</a>
+        </nav>
 
-    <main class="gallery-section">
         <div id="loading" class="loading">Loading photos...</div>
         <div id="gallery" class="gallery"></div>
         <div id="error" class="error" style="display: none;"></div>
@@ -33,10 +35,13 @@
             <span id="page-info" class="page-info"></span>
             <button id="next-btn" class="pagination-btn" disabled>Next →</button>
         </nav>
-    </main>
+    </section>
 
-    <footer class="page-footer">
-        <a href="https://jrbnz.com" class="back-link">← Back to home</a>
+    <!-- Footer with back link -->
+    <footer class="footer">
+        <div class="footer-content">
+            <a href="https://jrbnz.com" class="back-link">← Back to home</a>
+        </div>
     </footer>
 
     <!-- GLightbox -->
