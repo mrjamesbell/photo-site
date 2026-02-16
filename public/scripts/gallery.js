@@ -196,21 +196,23 @@ function initializeLightbox() {
         touchNavigation: true,
         loop: true,
         autoplayVideos: false,
+        width: '90vw',
+        height: '90vh',
         onOpen: () => {
             // Track click when lightbox opens
-            const currentSlide = lightbox.activeSlide;
-            if (currentSlide) {
-                const photoId = currentSlide.slideNode.dataset.photoId;
+            const element = lightbox.elements[lightbox.index];
+            if (element && element.node) {
+                const photoId = element.node.dataset.photoId;
                 if (photoId) {
                     trackClick(photoId);
                 }
             }
         },
-        onSlideChange: () => {
+        onSlideChange: ({ prev, current }) => {
             // Track click when slide changes
-            const currentSlide = lightbox.activeSlide;
-            if (currentSlide) {
-                const photoId = currentSlide.slideNode.dataset.photoId;
+            const element = lightbox.elements[current.index];
+            if (element && element.node) {
+                const photoId = element.node.dataset.photoId;
                 if (photoId) {
                     trackClick(photoId);
                 }
