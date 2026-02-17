@@ -46,13 +46,12 @@
     display: inline-block;
     width: 100%;
     border-bottom: none !important;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 3px solid transparent;
+    transition: border-color 0.2s ease;
 }
 
 .gallery-item:hover {
-    border-bottom: none !important;
-    transform: translateY(-4px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    border-color: var(--accent-color);
 }
 
 .gallery-item img {
