@@ -2,7 +2,7 @@
 
 // Configuration
 const USE_MOCK_API = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.protocol === 'file:';
-const API_ENDPOINT = USE_MOCK_API ? '/api' : 'https://photo-gallery-worker.jrbnz.workers.dev';
+const API_ENDPOINT = USE_MOCK_API ? '/api' : 'https://photo-gallery-worker.jrbnz.workers.dev/api';
 const PHOTOS_PER_PAGE = 30;
 
 // State
