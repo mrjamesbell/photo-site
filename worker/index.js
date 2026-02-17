@@ -24,6 +24,8 @@ export default {
             return handleGetPhotos(request, env, corsHeaders);
         } else if (url.pathname === '/api/click') {
             return handleTrackClick(request, env, corsHeaders);
+        } else if (url.pathname.startsWith('/api/image/')) {
+            return handleGetImage(request, env, corsHeaders);
         }
 
         return new Response('Not Found', { status: 404 });
@@ -129,6 +131,46 @@ async function handleTrackClick(request, env, corsHeaders) {
     } catch (error) {
         console.error('Error tracking click:', error);
         return jsonResponse({ error: 'Internal Server Error' }, corsHeaders, 500);
+    }
+}
+
+/**
+ * GET /api/image/:type/:id
+ * Serve images from R2 storage
+ */
+async function handleGetImage(request, env, corsHeaders) {
+    try {
+        const url = new URL(request.url);
+        // Path format: /api/image/thumbnails/photo-id.jpg or /api/image/photos/photo-id.jpg
+        const pathParts = url.pathname.split('/').filter(Boolean);
+
+        if (pathParts.length < 4) {
+            return new Response('Invalid image path', { status: 400 });
+        }
+
+        const type = pathParts[2]; // 'thumbnails' or 'photos'
+        const filename = pathParts[3]; // 'photo-id.jpg'
+        const key = `${type}/${filename}`;
+
+        // Fetch from R2
+        const object = await env.PHOTO_STORAGE.get(key);
+
+        if (!object) {
+            return new Response('Image not found', { status: 404 });
+        }
+
+        // Return image with appropriate headers
+        return new Response(object.body, {
+            headers: {
+                'Content-Type': 'image/jpeg',
+                'Cache-Control': 'public, max-age=31536000',
+                ...corsHeaders
+            }
+        });
+
+    } catch (error) {
+        console.error('Error serving image:', error);
+        return new Response('Internal Server Error', { status: 500 });
     }
 }
 
