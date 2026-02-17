@@ -48,12 +48,30 @@ a:hover {
 .page-header {
     padding: 80px 40px 40px;
     background: var(--background-color);
+    position: relative;
 }
 
 .page-header h1 {
     font-size: clamp(64px, 12vw, 140px);
     color: var(--text-color);
     text-align: left;
+}
+
+.site-logo {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(24px, 3vw, 32px);
+    letter-spacing: 0.05em;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+
+.site-logo:hover {
+    opacity: 0.7;
+    border-bottom: none;
 }
 
 /* Content section */
@@ -115,6 +133,11 @@ a:hover {
 @media (max-width: 768px) {
     .page-header {
         padding: 60px 24px 24px;
+    }
+
+    .site-logo {
+        top: 24px;
+        right: 24px;
     }
 
     .content-section {

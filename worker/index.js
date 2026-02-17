@@ -68,13 +68,13 @@ async function handleGetPhotos(request, env, corsHeaders) {
             })
         );
 
-        // Sort by click count (descending), then randomize ties
+        // Sort by click count (descending), then by ID for consistent ordering
         photosWithClicks.sort((a, b) => {
             if (b.clicks !== a.clicks) {
                 return b.clicks - a.clicks;
             }
-            // Randomize photos with same click count
-            return Math.random() - 0.5;
+            // For photos with same click count, sort by ID to maintain consistent pagination
+            return a.id.localeCompare(b.id);
         });
 
         // Paginate results
